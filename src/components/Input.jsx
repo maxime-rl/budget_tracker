@@ -6,6 +6,7 @@ export default function Input({ ...props }) {
 
   return (
     <input
+      className="p-1 border-2 rounded-sm border-slate-300"
       type={type}
       name={name}
       value={value}
@@ -19,7 +20,7 @@ export default function Input({ ...props }) {
 
 Input.propTypes = {
   type: PropTypes.string.isRequired,
-  name: PropTypes.string.isRequired,
+  name: PropTypes.string,
   value: PropTypes.oneOfType([
     PropTypes.string.isRequired,
     PropTypes.number.isRequired,
