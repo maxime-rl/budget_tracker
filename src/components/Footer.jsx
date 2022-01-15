@@ -1,5 +1,9 @@
 import React from "react";
 
 export default function Footer() {
-  return <div>Footer component</div>;
+  return (
+    <footer className="text-center p-6">
+      <span>Footer component</span>
+    </footer>
+  );
 }
