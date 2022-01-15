@@ -5,7 +5,7 @@
 ![license](https://badgen.net/github/license/maxime-rl/react-modal-mrl)
 ![Code Style](https://img.shields.io/badge/code_style-prettier-blue.svg)
 
-**_Petite application pour gérer mon budget avec React et Firebase_**
+**_Petite application pour tester et apprendre l'authentification avec Firebase_**
 
 ### Required
 
