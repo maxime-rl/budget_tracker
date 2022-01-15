@@ -2,31 +2,21 @@ import { useState, useEffect } from "react";
 import { projectAuth } from "../firebase/config";
 import { useAuthContext } from "./useAuthContext";
 
-export const useRegister = () => {
+export const useLogout = () => {
   const [isCancelled, setIsCancelled] = useState(false);
   const [error, setError] = useState(null);
   const [isLoading, setIsLoading] = useState(false);
   const { dispatch } = useAuthContext();
 
-  const register = async (email, password, name) => {
+  const logout = async () => {
     setIsLoading(true);
 
+    // sign the user out
     try {
-      // user register
-      const response = await projectAuth.createUserWithEmailAndPassword(
-        email,
-        password
-      );
-
-      if (!response) {
-        throw new Error("we are having a problem completing the registration");
-      }
-
-      // user name
-      await response.user.updateProfile({ name });
+      await projectAuth.signOut();
 
       // dispatch login action
-      dispatch({ type: "LOGIN", payload: response.user });
+      dispatch({ type: "LOGOUT" });
 
       // update state
       if (!isCancelled) {
@@ -46,5 +36,5 @@ export const useRegister = () => {
     return () => setIsCancelled(true);
   }, []);
 
-  return { error, isLoading, register };
+  return { error, isLoading, logout };
 };
