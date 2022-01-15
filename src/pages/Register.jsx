@@ -1,6 +1,6 @@
 import React from "react";
 import { useState } from "react";
-import { useRegister } from "../hooks/useRegister";
+import { useRegister } from "../hooks";
 import { Input } from "../components";
 
 export default function Register() {

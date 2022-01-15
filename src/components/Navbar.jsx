@@ -1,5 +1,5 @@
 import React from "react";
-import { useLogout } from "../hooks/useLogout";
+import { useLogout } from "../hooks";
 import { Link } from "react-router-dom";
 
 export default function Navbar() {
@@ -16,7 +16,9 @@ export default function Navbar() {
           <Link to="/register">Register</Link>
         </li>
         <li>
-          <button onClick={logout}>Logout</button>
+          <button onClick={logout} className="pl-6">
+            Logout
+          </button>
         </li>
       </ul>
     </nav>

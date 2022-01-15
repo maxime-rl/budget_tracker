@@ -1,14 +1,16 @@
 import React from "react";
 import { useState } from "react";
+import { useLogin } from "../hooks";
 import { Input } from "../components";
 
 export default function Login() {
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
+  const { error, isLoading, login } = useLogin();
 
   const handleSubmit = (e) => {
     e.preventDefault();
-    console.log(email, password);
+    login(email, password);
   };
 
   return (
@@ -34,9 +36,20 @@ export default function Login() {
             value={password}
           />
         </label>
-        <button className="p-2 text-white font-bold border-2 rounded-sm bg-cyan-500 hover:bg-cyan-600 border-cyan-500 hover:border-cyan-600">
-          Login
-        </button>
+        {!isLoading && (
+          <button className="p-2 text-white font-bold border-2 rounded-sm bg-cyan-500 hover:bg-cyan-600 border-cyan-500 hover:border-cyan-600">
+            Login
+          </button>
+        )}
+        {isLoading && (
+          <button
+            className="p-2 text-white font-bold border-2 rounded-sm bg-cyan-500 hover:bg-cyan-600 border-cyan-500 hover:border-cyan-600"
+            disabled
+          >
+            loading
+          </button>
+        )}
+        {error && <span>{error}</span>}
       </form>
     </div>
   );
