@@ -27,10 +27,10 @@ export default function Navbar() {
         {user && (
           <>
             <li>{user.displayName}</li>
-            <li>
-              <button className="pl-6" onClick={logout}>
+            <li className="pl-6">
+              <Link to="/" onClick={logout}>
                 Logout
-              </button>
+              </Link>
             </li>
           </>
         )}
