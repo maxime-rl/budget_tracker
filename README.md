@@ -17,6 +17,7 @@
 - [React](https://fr.reactjs.org/docs/getting-started.html)
 - [React-dom](https://fr.reactjs.org/docs/react-dom.html)
 - [React-router-dom](https://www.npmjs.com/package/react-router-dom)
+- [prop-types](https://www.npmjs.com/package/prop-types)
 
 ### devDependencies
 
