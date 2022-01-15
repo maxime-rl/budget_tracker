@@ -3,6 +3,10 @@ import { useState } from "react";
 import { useLogin } from "../hooks";
 import { Input } from "../components";
 
+/**
+ * @name Login
+ * @returns {ReactElement}
+ */
 export default function Login() {
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");

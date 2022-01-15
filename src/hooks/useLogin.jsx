@@ -2,6 +2,10 @@ import { useState, useEffect } from "react";
 import { projectAuth } from "../firebase/config";
 import { useAuthContext } from "./useAuthContext";
 
+/**
+ * @name useLogin
+ * @returns {object}
+ */
 export const useLogin = () => {
   const [isCancelled, setIsCancelled] = useState(false);
   const [error, setError] = useState(null);
@@ -36,6 +40,7 @@ export const useLogin = () => {
   };
 
   useEffect(() => {
+    // cleanup function
     return () => setIsCancelled(true);
   }, []);
 

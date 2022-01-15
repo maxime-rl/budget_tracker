@@ -3,6 +3,10 @@ import { useState } from "react";
 import { useRegister } from "../hooks";
 import { Input } from "../components";
 
+/**
+ * @name Register
+ * @returns {ReactElement}
+ */
 export default function Register() {
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");

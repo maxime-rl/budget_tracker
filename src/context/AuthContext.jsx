@@ -3,6 +3,10 @@ import { projectAuth } from "../firebase/config";
 
 export const AuthContext = createContext();
 
+/**
+ * @name AuthReducer
+ * @returns {object}
+ */
 export const AuthReducer = (state, action) => {
   switch (action.type) {
     case "LOGIN":
@@ -16,6 +20,10 @@ export const AuthReducer = (state, action) => {
   }
 };
 
+/**
+ * @name AuthContextProvider
+ * @returns {object}
+ */
 export const AuthContextProvider = ({ children }) => {
   const [state, dispatch] = useReducer(AuthReducer, {
     user: null,
@@ -23,6 +31,9 @@ export const AuthContextProvider = ({ children }) => {
   });
 
   useEffect(() => {
+    /**
+     * Observing firebase auth state changes
+     */
     const unsub = projectAuth.onAuthStateChanged((user) => {
       dispatch({ type: "AUTH_IS_READY", payload: user });
       unsub();

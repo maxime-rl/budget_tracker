@@ -2,6 +2,10 @@ import React from "react";
 import { useLogout, useAuthContext } from "../hooks";
 import { Link } from "react-router-dom";
 
+/**
+ * @name Navbar
+ * @returns {ReactElement}
+ */
 export default function Navbar() {
   const { logout } = useLogout();
   const { user } = useAuthContext();

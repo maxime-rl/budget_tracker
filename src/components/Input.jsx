@@ -1,6 +1,11 @@
 import React from "react";
 import PropTypes from "prop-types";
 
+/**
+ * @name Input
+ * @param {object} props
+ * @returns {ReactElement}
+ */
 export default function Input({ ...props }) {
   const { type, name, value, min, max, onChange, required } = props;
 

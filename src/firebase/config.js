@@ -11,6 +11,7 @@ const firebaseConfig = {
   appId: `${import.meta.env.VITE_FIREBASE_AP_ID}`,
 };
 
+// init firebase and firestore methods for firebase@8.5 (change from version 9)
 // init firebase
 firebase.initializeApp(firebaseConfig);
 
