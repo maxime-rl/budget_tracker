@@ -5,7 +5,7 @@
 ![license](https://badgen.net/github/license/maxime-rl/react-modal-mrl)
 ![Code Style](https://img.shields.io/badge/code_style-prettier-blue.svg)
 
-**_Petite application pour gérer mon budget avec React et Firebase_**
+**_Petite application pour tester et apprendre l'authentification avec Firebase_**
 
 ### Required
 
@@ -16,6 +16,8 @@
 
 - [React](https://fr.reactjs.org/docs/getting-started.html)
 - [React-dom](https://fr.reactjs.org/docs/react-dom.html)
+- [React-router-dom](https://www.npmjs.com/package/react-router-dom)
+- [prop-types](https://www.npmjs.com/package/prop-types)
 
 ### devDependencies
 

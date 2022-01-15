@@ -1,9 +1,21 @@
-function App() {
-  return (
-    <div className="App">
-      <h1 className="text-center font-bold">Hello world :-)</h1>
-    </div>
-  )
-}
+import React from "react";
+import ReactDOM from "react-dom";
+import { BrowserRouter } from "react-router-dom";
+import Routing from "./Routing";
+import { Navbar, Footer } from "./components";
+import "tailwindcss/tailwind.css";
 
-export default App
+import { AuthContextProvider } from "./context/AuthContext";
+
+ReactDOM.render(
+  <React.StrictMode>
+    <AuthContextProvider>
+      <BrowserRouter>
+        <Navbar />
+        <Routing />
+        <Footer />
+      </BrowserRouter>
+    </AuthContextProvider>
+  </React.StrictMode>,
+  document.getElementById("root")
+);
