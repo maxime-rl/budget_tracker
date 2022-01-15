@@ -1,15 +1,17 @@
 import React from "react";
 import { useState } from "react";
+import { useRegister } from "../hooks/useRegister";
 import { Input } from "../components";
 
 export default function Register() {
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
   const [name, setName] = useState("");
+  const { error, isLoading, register } = useRegister();
 
   const handleSubmit = (e) => {
     e.preventDefault();
-    console.log(email, password, name);
+    register(email, password, name);
   };
 
   return (
@@ -45,9 +47,20 @@ export default function Register() {
             value={name}
           />
         </label>
-        <button className="p-2 text-white font-bold border-2 rounded-sm bg-cyan-500 hover:bg-cyan-600 border-cyan-500 hover:border-cyan-600">
-          Register
-        </button>
+        {!isLoading && (
+          <button className="p-2 text-white font-bold border-2 rounded-sm bg-cyan-500 hover:bg-cyan-600 border-cyan-500 hover:border-cyan-600">
+            Register
+          </button>
+        )}
+        {isLoading && (
+          <button
+            className="p-2 text-white font-bold border-2 rounded-sm bg-cyan-500 hover:bg-cyan-600 border-cyan-500 hover:border-cyan-600"
+            disabled
+          >
+            loading
+          </button>
+        )}
+        {error && <span>{error}</span>}
       </form>
     </div>
   );
