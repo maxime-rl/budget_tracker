@@ -8,7 +8,7 @@ export const useRegister = () => {
   const [isLoading, setIsLoading] = useState(false);
   const { dispatch } = useAuthContext();
 
-  const register = async (email, password, name) => {
+  const register = async (email, password, displayName) => {
     setIsLoading(true);
 
     try {
@@ -23,7 +23,7 @@ export const useRegister = () => {
       }
 
       // user name
-      await response.user.updateProfile({ name });
+      await response.user.updateProfile({ displayName });
 
       // dispatch login action
       dispatch({ type: "LOGIN", payload: response.user });
