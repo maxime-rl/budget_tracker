@@ -27,7 +27,7 @@ export default function Login() {
         <label className="flex flex-col pb-4">
           <span className="pb-1 text-sm font-light">Email</span>
           <Input
-            type={email}
+            type={"email"}
             onChange={(e) => setEmail(e.target.value)}
             value={email}
           />
@@ -35,7 +35,7 @@ export default function Login() {
         <label className="flex flex-col pb-8">
           <span className="pb-1 text-sm font-light">Password</span>
           <Input
-            type={password}
+            type={"password"}
             onChange={(e) => setPassword(e.target.value)}
             value={password}
           />

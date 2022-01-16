@@ -1,14 +1,34 @@
-import React, { useState } from "react";
+import React, { useState, useEffect } from "react";
+import { useFirestore } from "../../hooks";
 import { Input } from "../../components";
+import PropTypes from "prop-types";
 
-export default function TransactionForm() {
+/**
+ * @name TransactionForm
+ * @param {string} uid -> user id key firebase
+ * @returns {ReactElement}
+ */
+export default function TransactionForm({ uid }) {
   const [name, setName] = useState("");
   const [amount, setAmount] = useState("");
+  const { addDocument, response } = useFirestore("transactions");
 
   const handleSubmit = (e) => {
     e.preventDefault();
-    console.log(name, amount);
+    addDocument({
+      uid,
+      name,
+      amount,
+    });
   };
+
+  // reset the form fields
+  useEffect(() => {
+    if (response.success) {
+      setName("");
+      setAmount("");
+    }
+  }, [response.success]);
 
   return (
     <form
@@ -33,6 +53,7 @@ export default function TransactionForm() {
           type={"number"}
           onChange={(e) => setAmount(e.target.value)}
           value={amount}
+          required
         />
       </label>
       <button className="p-2 text-white font-bold border-2 rounded-sm bg-cyan-500 hover:bg-cyan-600 border-cyan-500 hover:border-cyan-600">
@@ -41,3 +62,7 @@ export default function TransactionForm() {
     </form>
   );
 }
+
+TransactionForm.propTypes = {
+  uid: PropTypes.string.isRequired,
+};
