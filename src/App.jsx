@@ -1,7 +1,7 @@
 import React from "react";
 import ReactDOM from "react-dom";
 import { BrowserRouter } from "react-router-dom";
-import Routing from "./Routing";
+import Routing from "./Routing/Routing";
 import { Navbar, Footer } from "./components";
 import "tailwindcss/tailwind.css";
 
