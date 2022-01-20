@@ -37,6 +37,13 @@ const firestoreReducer = (state, action) => {
         error: null,
         document: action.payload,
       };
+    case "DELETED_DOCUMENT":
+      return {
+        success: true,
+        isLoading: false,
+        error: null,
+        document: null,
+      };
     default:
       return state;
   }
@@ -72,13 +79,22 @@ export const useFirestore = (collection) => {
         type: "ADDED_DOCUMENT",
         payload: addedDocument,
       });
-    } catch (err) {
-      dispatchIfNotCancelled({ type: "ERROR", payload: err.message });
+    } catch (error) {
+      dispatchIfNotCancelled({ type: "ERROR", payload: error.message });
     }
   };
 
   // delete a document
-  const deleteDocument = async (doc) => {};
+  const deleteDocument = async (id) => {
+    dispatch({ type: "IS_LOADING" });
+
+    try {
+      await ref.doc(id).delete();
+      dispatchIfNotCancelled({ type: "DELETED_DOCUMENT" });
+    } catch (error) {
+      dispatchIfNotCancelled({ type: "ERROR", payload: "could not delete" });
+    }
+  };
 
   useEffect(() => {
     return () => setIsCancelled(true);
