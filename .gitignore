@@ -4,3 +4,8 @@ dist
 dist-ssr
 *.local
 .env
+.firebase
+.firebaserc
+firebase.json
+firestore.rules
+firestore.indexes.json
