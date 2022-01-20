@@ -9,7 +9,11 @@ import TransactionList from "./TransactionList";
  */
 export default function Home() {
   const { user } = useAuthContext();
-  const { documents, error } = useCollection("transactions");
+  const { documents, error } = useCollection("transactions", [
+    "uid",
+    "==",
+    user.uid,
+  ]);
 
   return (
     <main className="bg-slate-100">

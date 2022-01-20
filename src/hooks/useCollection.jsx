@@ -1,17 +1,26 @@
-import { useEffect, useState } from "react";
+import { useEffect, useState, useRef } from "react";
 import { projectFirestore } from "../firebase/config";
 
 /**
  * @name useCollection
  * @param {string} collection
+ * @param {array} _query
  * @returns {string|object}
  */
-export const useCollection = (collection) => {
+export const useCollection = (collection, _query) => {
   const [documents, setDocuments] = useState(null);
   const [error, setError] = useState(null);
 
+  // use a ref to avoid infinite loop in useEffect
+  const query = useRef(_query).current;
+
   useEffect(() => {
     let ref = projectFirestore.collection(collection);
+
+    // handle users query
+    if (query) {
+      ref = ref.where(...query);
+    }
 
     const unsubscribe = ref.onSnapshot(
       (snapshot) => {
@@ -32,7 +41,7 @@ export const useCollection = (collection) => {
 
     // unsubscribe on unmount
     return () => unsubscribe();
-  }, [collection]);
+  }, [collection, query]);
 
   return { documents, error };
 };
