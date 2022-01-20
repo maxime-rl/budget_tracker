@@ -30,7 +30,7 @@ export default function Register() {
         <label className="flex flex-col pb-4">
           <span className="pb-1 text-sm font-light">Email</span>
           <Input
-            type={email}
+            type={"email"}
             onChange={(e) => setEmail(e.target.value)}
             value={email}
           />
@@ -38,7 +38,7 @@ export default function Register() {
         <label className="flex flex-col pb-4">
           <span className="pb-1 text-sm font-light">Password</span>
           <Input
-            type={password}
+            type={"password"}
             onChange={(e) => setPassword(e.target.value)}
             value={password}
           />
@@ -46,7 +46,7 @@ export default function Register() {
         <label className="flex flex-col pb-8">
           <span className="pb-1 text-sm font-light">User name</span>
           <Input
-            type={name}
+            type={"text"}
             onChange={(e) => setName(e.target.value)}
             value={name}
           />
