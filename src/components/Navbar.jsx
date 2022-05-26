@@ -11,7 +11,7 @@ export default function Navbar() {
   const { user } = useAuthContext();
 
   return (
-    <nav className="relative shadow-md">
+    <nav className="relative basis-auto shadow-md">
       <div className="flex justify-between px-4 md:px-8 py-6 lg:max-w-screen-lg lg:mx-auto">
         <span className="font-bold">Budget tracker</span>
         <ul className="flex">
